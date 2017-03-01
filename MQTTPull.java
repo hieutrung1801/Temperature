@@ -30,7 +30,7 @@ public class MQTTPull implements MqttCallback {
             /*Pulling*/
             mqttClient.connect(connOpts);
             mqttClient.setCallback(this);
-            mqttClient.subscribe("Time");
+            mqttClient.subscribe("Ho Chi Minh");
             MqttMessage message = new MqttMessage();
             message.setPayload("This is the temperature".getBytes());
             //mqttClient.publish("Time", message);
@@ -62,6 +62,7 @@ public class MQTTPull implements MqttCallback {
             count ++;
         }
         System.out.println("Average: "+ average/count);
+        System.out.println("Time is: " + new Date());
     }
 
     @Override
