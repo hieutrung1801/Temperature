@@ -34,13 +34,15 @@ public class MQTTPull implements MqttCallback {
             /*Pulling*/
             mqttClient1.connect(connOpts);
             mqttClient1.setCallback(this);
-            mqttClient2.connect(connOpts);
-            mqttClient2.setCallback(this);
-            mqttClient3.connect(connOpts);
-            mqttClient3.setCallback(this);
+            //mqttClient2.connect(connOpts);
+            //mqttClient2.setCallback(this);
+            //mqttClient3.connect(connOpts);
+            //mqttClient3.setCallback(this);
             mqttClient1.subscribe("Ho Chi Minh");
-            mqttClient2.subscribe("New York");
-            mqttClient3.subscribe("Miami");
+            mqttClient1.subscribe("New York");
+            mqttClient1.subscribe("Miami");
+            //mqttClient2.subscribe("New York");
+            //mqttClient3.subscribe("Miami");
             MqttMessage message = new MqttMessage();
             message.setPayload("".getBytes());
 //            mqttClient1.publish("Ho Chi Minh", message);
@@ -70,6 +72,7 @@ public class MQTTPull implements MqttCallback {
             average += mylist.get(i);
             count ++;
         }
+        System.out.println("pulled from: "+ topic);
         System.out.println("Average: "+ average/count);
         System.out.println("Time is: " + new Date());
     }
